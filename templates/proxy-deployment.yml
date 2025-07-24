@@ -30,14 +30,12 @@ spec:
         image: dominikbechstein/nginx-forward-proxy:1.0@sha256:6e3fcbe8ff5a1c0cc2641d5de3f8f53cac2b80a88b2f4141b983264a95452d68
         imagePullPolicy: IfNotPresent
         livenessProbe:
-          httpGet:
-            path: /
+          tcpSocket:
             port: 8080
           initialDelaySeconds: 30
           timeoutSeconds: 10
         readinessProbe:
-          httpGet:
-            path: /
+          tcpSocket:
             port: 8080
           initialDelaySeconds: 30
           timeoutSeconds: 10
