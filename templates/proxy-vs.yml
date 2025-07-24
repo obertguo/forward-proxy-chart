@@ -3,11 +3,10 @@ kind: VirtualService
 metadata:
   name: iac-proxy-deployment-vs
   labels:
-     labels:
-      app:  iac-proxy-deployment-vs
-      chart:  iac-proxy-deployment-vs
-      release: iac-proxy-deployment-vs
-      version: 1.0.0
+    app:  iac-proxy-deployment-vs
+    chart:  iac-proxy-deployment-vs
+    release: iac-proxy-deployment-vs
+    version: 1.0.0
 spec:
   hosts:
     - "*"
