@@ -24,7 +24,7 @@ spec:
         release: iac-proxy-deployment
         pod-type: api
     spec:
-      terminationGracePeriodSeconds: "30"
+      terminationGracePeriodSeconds: 30
       containers:
       - name: iac-proxy-deployment
         image: dominikbechstein/nginx-forward-proxy
