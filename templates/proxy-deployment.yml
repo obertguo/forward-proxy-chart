@@ -27,16 +27,16 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: iac-proxy-deployment
-        image: dominikbechstein/nginx-forward-proxy:1.0@sha256:6e3fcbe8ff5a1c0cc2641d5de3f8f53cac2b80a88b2f4141b983264a95452d68
+        image: yegor256/squid-proxy:sha-4b1725e@sha256:fe97386361b185bc9493abeb28bbc5b15ed68e0f18cf91e0248af5251bbbb6d1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           tcpSocket:
-            port: 8080
+            port: 3128
           initialDelaySeconds: 30
           timeoutSeconds: 10
         readinessProbe:
           tcpSocket:
-            port: 8080
+            port: 3128
           initialDelaySeconds: 30
           timeoutSeconds: 10
         resources:
@@ -47,8 +47,10 @@ spec:
             memory: 2048Mi
             cpu: "1"
         ports:
-        - containerPort: 8080
+        - containerPort: 3128
         env:
-        - name: TEST_ENV
-          value: "test_value"
+        - name: USERNAME
+          value: user
+        - name: PASSWORD
+          value: pass
         
