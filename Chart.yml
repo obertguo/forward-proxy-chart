@@ -1,0 +1,5 @@
+apiVersion: v2
+appVersion: 1.0.0
+description: A quick nginx forward-proxy service
+name: iac-proxy
+version: 1.0.0
