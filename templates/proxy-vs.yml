@@ -22,4 +22,4 @@ spec:
       - destination:
           host: iac-proxy-deployment.{{ .Release.Namespace }}.svc.cluster.local
           port:
-            number: 8080
+            number: 3128
