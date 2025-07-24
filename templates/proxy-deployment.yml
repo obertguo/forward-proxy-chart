@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iac-proxy-deployment
+  labels:
+    app:  iac-proxy-deployment
+    chart:  iac-proxy-deployment
+    release: iac-proxy-deployment
+    version: 1.0.0
+    deployment-type: api
+spec:
+  replicas: "1"
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: iac-proxy-deployment
+  template:
+    metadata:
+      name: iac-proxy-deployment
+      labels:
+        app: iac-proxy-deployment
+        chart: iac-proxy-deployment
+        release: iac-proxy-deployment
+        pod-type: api
+    spec:
+      terminationGracePeriodSeconds: "30"
+      containers:
+      - name: iac-proxy-deployment
+        image: dominikbechstein/nginx-forward-proxy
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+        resources:
+          limits:
+            memory: 4096Mi
+            cpu: "2"
+          requests:
+            memory: 2048Mi
+            cpu: "1"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TEST_ENV
+          value: "test_value"
+        
