@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iac-proxy-deployment-service
+  labels:
+    app:  iac-proxy-deployment-service
+    chart:  iac-proxy-deployment-service
+    release: iac-proxy-deployment-service
+    version: 1.0.0
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 8080
+  selector:
+    app:  iac-proxy-deployment
+    release:  iac-proxy-deployment
+    pod-type: api
+  type: "NodePort"
