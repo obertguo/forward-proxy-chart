@@ -10,7 +10,7 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 8080
+  - port: 3128
   selector:
     app:  iac-proxy-deployment
     release:  iac-proxy-deployment
