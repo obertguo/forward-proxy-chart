@@ -22,6 +22,6 @@ spec:
         uri: /
       route:
       - destination:
-          host: iac-proxy-deployment.{{ .Release.Namespace }}.svc.cluster.local
+          host: iac-proxy-deployment-service.{{ .Release.Namespace }}.svc.cluster.local
           port:
             number: 3128
