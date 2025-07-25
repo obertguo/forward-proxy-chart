@@ -15,9 +15,9 @@ spec:
   http:
     - match:
       - uri:
-          prefix: "/"
+          prefix: "/iac-proxy-deployment"
       - uri:
-          prefix: ""
+          prefix: "/iac-proxy-deployment/"
       rewrite:
         uri: /
       route:
