@@ -24,20 +24,20 @@ spec:
         release: iac-proxy-deployment
         pod-type: api
     spec:
-      terminationGracePeriodSeconds: 30
+      terminationGracePeriodSeconds: 10
       containers:
       - name: iac-proxy-deployment
-        image: yegor256/squid-proxy:sha-4b1725e@sha256:fe97386361b185bc9493abeb28bbc5b15ed68e0f18cf91e0248af5251bbbb6d1
+        image: imagick/tinyproxy:latest@sha256:72b441b95ee1e641af948f68f09492f9f795ead72b73954414e339168c98ad8c
         imagePullPolicy: IfNotPresent
         livenessProbe:
           tcpSocket:
-            port: 3128
-          initialDelaySeconds: 30
+            port: 8888
+          initialDelaySeconds: 10
           timeoutSeconds: 10
         readinessProbe:
           tcpSocket:
-            port: 3128
-          initialDelaySeconds: 30
+            port: 8888
+          initialDelaySeconds: 10
           timeoutSeconds: 10
         resources:
           limits:
@@ -47,7 +47,7 @@ spec:
             memory: 2048Mi
             cpu: "1"
         ports:
-        - containerPort: 3128
+        - containerPort: 8888
         env:
         - name: USERNAME
           value: user
