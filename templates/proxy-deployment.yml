@@ -27,7 +27,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: iac-proxy-deployment
-        image: vimagick/tinyproxy:latest@sha256:72b441b95ee1e641af948f68f09492f9f795ead72b73954414e339168c98ad8c
+        image: yegor256/squid-proxy:sha-4b1725e@sha256:fe97386361b185bc9493abeb28bbc5b15ed68e0f18cf91e0248af5251bbbb6d1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           tcpSocket:
