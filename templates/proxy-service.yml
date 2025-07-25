@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: iac-proxy-deployment-service
   labels:
-    app:  iac-proxy-deployment-service
-    chart:  iac-proxy-deployment-service
+    app: iac-proxy-deployment-service
+    chart: iac-proxy-deployment-service
     release: iac-proxy-deployment-service
     version: 1.0.0
 spec:
@@ -14,7 +14,7 @@ spec:
     port: 8888
     targetPort: 8888
   selector:
-    app:  iac-proxy-deployment
-    release:  iac-proxy-deployment
+    app: iac-proxy-deployment
+    release: iac-proxy-deployment
     pod-type: api
   type: "NodePort"
