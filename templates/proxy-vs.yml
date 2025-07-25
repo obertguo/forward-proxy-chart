@@ -14,22 +14,22 @@ spec:
     - istio-system/istio-gateway
   tcp:
   - match:
-    - port: 3128
+    - port: 80
     route:
     - destination:
         host: iac-proxy-deployment-service.{{ .Release.Namespace }}.svc.cluster.local
         port:
           number: 3128
-  http:
-  - match:
-    - uri:
-        prefix: "/"
-    - uri:
-        prefix: ""
-    rewrite:
-      uri: /
-    route:
-    - destination:
-        host: iac-proxy-deployment-service.{{ .Release.Namespace }}.svc.cluster.local
-        port:
-          number: 3128
+  # http:
+  # - match:
+  #   - uri:
+  #       prefix: "/"
+  #   - uri:
+  #       prefix: ""
+  #   rewrite:
+  #     uri: /
+  #   route:
+  #   - destination:
+  #       host: iac-proxy-deployment-service.{{ .Release.Namespace }}.svc.cluster.local
+  #       port:
+  #         number: 3128
