@@ -29,16 +29,8 @@ spec:
       - name: iac-proxy-deployment
         image: yegor256/squid-proxy:sha-4b1725e@sha256:fe97386361b185bc9493abeb28bbc5b15ed68e0f18cf91e0248af5251bbbb6d1
         imagePullPolicy: IfNotPresent
-        livenessProbe:
-          tcpSocket:
-            port: 8888
-          initialDelaySeconds: 10
-          timeoutSeconds: 10
-        readinessProbe:
-          tcpSocket:
-            port: 8888
-          initialDelaySeconds: 10
-          timeoutSeconds: 10
+        livenessProbe: null
+        readinessProbe: null
         resources:
           limits:
             memory: 4096Mi
@@ -47,7 +39,7 @@ spec:
             memory: 2048Mi
             cpu: "1"
         ports:
-        - containerPort: 8888
+        - containerPort: 3128
         env:
         - name: USERNAME
           value: user
